@@ -1,0 +1,36 @@
+---
+- name: Provision image
+  hosts: default
+  become: true
+
+  tasks:
+    - name: Add HashiCorp GPG Key
+      ansible.builtin.apt_key:
+        url: https://apt.releases.hashicorp.com/gpg
+        state: present
+
+    - name: Add HashiCorp repo
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64] https://apt.releases.hashicorp.com focal main"
+        state: present
+
+    - name: Install HashiCorp software
+      ansible.builtin.apt:
+        pkg:
+        - packer
+        - terraform
+        - vault-enterprise
+        - consul-enterprise
+        - nomad-enterprise
+        update_cache: yes
+
+    - name: Install net-tools
+      ansible.builtin.apt:
+        pkg:
+        - net-tools
+        update_cache: yes
+
+    - name: Update all packages to their latest version
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
