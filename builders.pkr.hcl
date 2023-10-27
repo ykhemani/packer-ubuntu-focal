@@ -85,23 +85,24 @@ build {
 
   sources = [
     "source.amazon-ebs.ubuntu-us-east",
-    "source.amazon-ebs.ubuntu-us-west",
-    # "ubuntu-azure-us-east"
+    #"source.amazon-ebs.ubuntu-us-west",
+    #"source.azure-arm.ubuntu-azure-us-east"
   ]
-
-  ## via shell provisioner
-  #  provisioner "shell" {
-  #    execute_command = "{{.Vars}} bash '{{.Path}}'"
-  #    inline = [
-  #      "sudo yum update -y",
-  #      "sudo yum install -y yum-utils",
-  #      "sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo",
-  #      "sudo yum -y install terraform vault-enterprise consul-enterprise nomad-enterprise packer consul-template"
-  #    ]
-  #  }
 
   provisioner "ansible" {
     playbook_file = "./playbook.yaml"
   }
-}
 
+  provisioner "shell" {
+    inline = [
+      "sudo curl -L \"https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl\" -o /usr/local/bin/kubectl",
+      "sudo chmod +x /usr/local/bin/kubectl",
+      "sudo curl -Lo /usr/local/bin/kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64",
+      "sudo chmod +x /usr/local/bin/kind",
+      "sudo curl -Lo /tmp/go1.21.3.linux-amd64.tar.gz https://go.dev/dl/go1.21.3.linux-amd64.tar.gz",
+      "sudo tar -C /usr/local -xzf /tmp/go1.21.3.linux-amd64.tar.gz",
+      "export PATH=$PATH:/usr/local/go/bin",
+      "echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/go.sh"
+    ]
+  }
+}

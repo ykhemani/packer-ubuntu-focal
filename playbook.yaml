@@ -22,12 +22,58 @@
         - vault-enterprise
         - consul-enterprise
         - nomad-enterprise
+        - boundary-enterprise
         update_cache: yes
 
-    - name: Install net-tools
+    - name: Install docker prerequisites
+      ansible.builtin.apt:
+        pkg:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+  
+    - name: Add Docker GPG key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repo
+      ansible.builtin.apt_repository:
+        repo: "deb https://download.docker.com/linux/ubuntu focal stable"
+        state: present
+  
+    - name: Install Docker
+      ansible.builtin.apt:
+        pkg:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-buildx-plugin
+        - docker-compose-plugin
+        update_cache: yes
+
+    - name: Add Helm GPG Key
+      ansible.builtin.apt_key:
+        url: https://baltocdn.com/helm/signing.asc
+        state: present
+    
+    - name: Add Helm repo
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64] https://baltocdn.com/helm/stable/debian/ all main"
+  
+    - name: Install Helm
+      ansible.builtin.apt:
+        pkg:
+        - helm
+
+    - name: Install misc
       ansible.builtin.apt:
         pkg:
         - net-tools
+        - jq
+        - make
         update_cache: yes
 
     - name: Update all packages to their latest version
