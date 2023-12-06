@@ -1,12 +1,16 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 1.1.0"
       source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
     }
-    azure = {
-      version = "1.2.0"
-      source  = "github.com/hashicorp/azure"
+    # azure = {
+    #   source  = "github.com/hashicorp/azure"
+    #   version = "~> 1"
+    # }
+    ansible = {
+      source  = "github.com/hashicorp/ansible"
+      version = "~> 1"
     }
   }
 }
@@ -28,7 +32,7 @@ build {
   sources = [
     "source.amazon-ebs.ubuntu-us-east",
     #"source.amazon-ebs.ubuntu-us-west",
-    "source.azure-arm.ubuntu-azure-us-east"
+    #"source.azure-arm.ubuntu-azure-us-east"
   ]
 
   provisioner "ansible" {
