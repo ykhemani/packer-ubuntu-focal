@@ -75,6 +75,7 @@
         - jq
         - make
         - mysql-client
+        - ldap-utils
         update_cache: yes
 
     - name: Update all packages to their latest version
