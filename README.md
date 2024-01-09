@@ -22,8 +22,8 @@ This Packer template uses the [Shell provisioner](https://developer.hashicorp.co
 
 This Packer template has been tested with the following software on a Mac running macOS on Apple Silicon.
 
-* [Packer](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli) version 1.10.
-* [Ansible](https://www.ansible.com/) version 2.16.2
+* [Packer](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli) version 1.10.0.
+* [Ansible](https://www.ansible.com/) version 2.16.2.
 
 For the Ansible provisioner, please add the following to your `.ansible.cfg` file:
 
@@ -77,27 +77,34 @@ packer build -var-file=<variables file> .
 
 ### Example Run
 
-#### Initialize Packer
+<details>
+  <summary>Initialize Packer</summary>
 ```
 ❯ packer init -var-file=yash.pkrvars.hcl .
 Installed plugin github.com/hashicorp/amazon v1.2.9 in "/Users/demo/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_darwin_arm64"
 Installed plugin github.com/hashicorp/ansible v1.1.1 in "/Users/demo/.config/packer/plugins/github.com/hashicorp/ansible/packer-plugin-ansible_v1.1.1_x5.0_darwin_arm64"
 ```
+</details>
 
-#### Format the Packer configuration
+<details>
+  <summary>Format the Packer configuration</summary>
 `packer fmt` will return no output if everything is properly formatted.
 ```
 ❯ packer fmt -var-file=yash.pkrvars.hcl .
 yash.pkrvars.hcl
 ```
+</details>
 
-#### Validate the Packer configuration
+<details>
+  <summary>Validate the Packer configuration</summary>
 ```
 ❯ packer validate -var-file=yash.pkrvars.hcl .
 The configuration is valid.
 ```
+</details>
 
-#### Build the machine image(s)
+<details>
+  <summary>Build the machine image(s)</summary>
 ```
 ❯ packer build -var-file=yash.pkrvars.hcl .
 Tracking build on HCP Packer with fingerprint "01HKQ9BRJX58JN28AWFG5E594Y"
@@ -220,3 +227,4 @@ us-east-1: ami-01234567890abcdef
 
 --> amazon-ebs.ubuntu-us-east: Published metadata to HCP Packer registry packer/ubuntu-focal-golden-image/iterations/01HKQ9BRZ2CM949X5HFYGJ3SSE
 ```
+</details>
