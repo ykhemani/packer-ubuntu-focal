@@ -79,6 +79,7 @@ packer build -var-file=<variables file> .
 
 <details>
   <summary>Initialize Packer</summary>
+
 ```
 ❯ packer init -var-file=yash.pkrvars.hcl .
 Installed plugin github.com/hashicorp/amazon v1.2.9 in "/Users/demo/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_darwin_arm64"
@@ -88,6 +89,7 @@ Installed plugin github.com/hashicorp/ansible v1.1.1 in "/Users/demo/.config/pac
 
 <details>
   <summary>Format the Packer configuration</summary>
+
 `packer fmt` will return no output if everything is properly formatted.
 ```
 ❯ packer fmt -var-file=yash.pkrvars.hcl .
@@ -97,6 +99,7 @@ yash.pkrvars.hcl
 
 <details>
   <summary>Validate the Packer configuration</summary>
+
 ```
 ❯ packer validate -var-file=yash.pkrvars.hcl .
 The configuration is valid.
@@ -105,6 +108,7 @@ The configuration is valid.
 
 <details>
   <summary>Build the machine image(s)</summary>
+
 ```
 ❯ packer build -var-file=yash.pkrvars.hcl .
 Tracking build on HCP Packer with fingerprint "01HKQ9BRJX58JN28AWFG5E594Y"
