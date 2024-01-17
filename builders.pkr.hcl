@@ -59,7 +59,18 @@ build {
       "sudo mv /data/src/k9s/k9s /usr/local/bin/k9s",
       "sudo curl -sL \"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose",
       "sudo chmod +x /usr/local/bin/docker-compose",
-      "sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose"
+      "sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose",
+      "sudo curl -Lo /data/src/nodesetup https://deb.nodesource.com/setup_20.x",
+      "sudo bash /data/src/nodesetup",
+      "sudo apt-get install -y nodejs",
+      "sudo apt install mongodb-clients -y",
+      "sudo npm install express",
+      "sudo npm install mongodb",
+      "sudo npm install @faker-js/faker",
+      "sudo docker pull hashicorp/vault-enterprise:1.15.4-ent",
+      "sudo docker pull mysql:5.7",
+      "sudo docker pull mongo:7.0.5",
+      "sudo docker pull bitnami/openldap:2.6.6"
     ]
   }
 }
