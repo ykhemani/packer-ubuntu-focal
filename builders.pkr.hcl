@@ -65,8 +65,10 @@ build {
       "sudo apt-get install -y nodejs",
       "sudo apt install mongodb-clients -y",
       "sudo docker pull hashicorp/vault-enterprise:1.15.4-ent",
+      "sudo docker pull hashicorp/consul-enterprise:1.17.1-ent",
       "sudo docker pull mysql:5.7",
       "sudo docker pull mongo:7.0.5",
+      "sudo docker pull node:20.11.0",
       "sudo docker pull bitnami/openldap:2.6.6"
     ]
   }
