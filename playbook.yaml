@@ -76,6 +76,7 @@
         - make
         - mysql-client
         - ldap-utils
+        - awscli
         update_cache: yes
 
     - name: Update all packages to their latest version
