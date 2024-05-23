@@ -22,7 +22,7 @@ This Packer template uses the [Shell provisioner](https://developer.hashicorp.co
 
 This Packer template has been tested with the following software on a Mac running macOS on Apple Silicon.
 
-* [Packer](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli) version 1.10.0.
+* [Packer](https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli) version 1.10.3.
 * [Ansible](https://www.ansible.com/) version 2.16.2.
 
 For the Ansible provisioner, please add the following to your `.ansible.cfg` file:
