@@ -64,8 +64,8 @@ build {
       "sudo bash /data/src/nodesetup",
       "sudo apt-get install -y nodejs",
       "sudo apt install mongodb-clients -y",
-      "sudo docker pull hashicorp/vault-enterprise:1.16.2-ent",
-      "sudo docker pull hashicorp/consul-enterprise:1.18.2-ent",
+      "sudo docker pull hashicorp/vault-enterprise:1.17.2-ent",
+      "sudo docker pull hashicorp/consul-enterprise:1.19.0-ent",
       "sudo docker pull mysql:5.7",
       "sudo docker pull mongo:7.0.5",
       "sudo docker pull bitnami/openldap:2.6.6"
