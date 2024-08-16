@@ -19,9 +19,9 @@
         pkg:
         - packer
         - terraform
-        - vault-enterprise
-        - consul-enterprise
-        - nomad-enterprise
+        - vault-enterprise=1.6.7+ent
+        - consul-enterprise=1.18.3+ent-1
+        - nomad-enterprise=1.8.3+ent-1
         - boundary-enterprise
         update_cache: yes
 
