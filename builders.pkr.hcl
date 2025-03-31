@@ -67,8 +67,8 @@ build {
       "sudo tar -C /data/src -xzf /data/src/coredns.tar.gz",
       "sudo mv /data/src/coredns /usr/bin/coredns",
       "sudo apt install mongodb-clients -y",
-      "sudo docker pull hashicorp/vault-enterprise:1.16.7-ent",
-      "sudo docker pull hashicorp/consul-enterprise:1.18.3-ent",
+      "sudo docker pull hashicorp/vault-enterprise:1.19.0-ent",
+      "sudo docker pull hashicorp/consul-enterprise:1.18.10-ent",
       "sudo docker pull mysql:5.7",
       "sudo docker pull mongo:7.0.5",
       "sudo docker pull bitnami/openldap:2.6.6"
